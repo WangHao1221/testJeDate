@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>test jqdate</title>
+    <link type="text/css" rel="stylesheet" href="./skin/jedate.css">
+    <script type="text/javascript" src="./src/jedate.min.js"></script>
+    <!-- <script type="text/javascript" src="./src/jedate.js"></script> -->
+</head>
+
+<body>
+    <input type="text" class="jeinput" id="test04">
+</body>
+<script>
+jeDate("#test04", {
+    festival: true, //是否显示农历节日
+    minDate: "1900-01-01", //最小日期
+    maxDate: "2099-12-31", //最大日期
+    format: "YYYY-MM-DD hh:mm:ss",
+    clearfun: function(elem, val) {
+        console.log('清除日期后的回调');
+    }, //清除日期后的回调, elem当前输入框ID, val当前选择的值
+    donefun: function(obj) {
+        console.log('点击确定后的回调');
+    }, //点击确定后的回调,obj包含{ elem当前输入框ID, val当前选择的值, date当前的日期值}
+    success: function(elem) {
+        console.log('层弹出后的成功回调方法, elem当前输入框ID');
+    }, //层弹出后的成功回调方法, elem当前输入框ID
+});
+</script>
+
+</html>
